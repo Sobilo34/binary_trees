@@ -15,7 +15,7 @@ void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
 	if (tree == NULL || func == NULL)
 		return; /*Do nothing if tree or func is NULL*/
 
-	/* Recusive traverse with Pre-order orientation */
+	/* Recusive traverse with in-order orientation */
 	binary_tree_inorder(tree->left, func); /*The left node first*/
 	func(tree->n); /*Then Parent node*/
 	binary_tree_inorder(tree->right, func); /*Then right node*/
