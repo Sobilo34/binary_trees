@@ -9,12 +9,12 @@
  */
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
-	if (tree == NULL)
-		return (0);
-
 	binary_tree_t *queue[1024];
 	size_t front = 0, back = 0;
 	int flag = 0;
+
+	if (tree == NULL)
+		return (0);
 
 	queue[back++] = (binary_tree_t *)tree;
 
