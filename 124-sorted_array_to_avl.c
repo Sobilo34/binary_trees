@@ -11,13 +11,14 @@
 
 avl_t *sorted_array_to_avl_recursive(int *array, int start, int end)
 {
+	avl_t *root;
 	int mid ;
 
 	if (start > end)
 		return NULL;
 
 	mid = (start + end) / 2;
-	avl_t *root = binary_tree_node(NULL, array[mid]);
+	root = binary_tree_node(NULL, array[mid]);
 
 	if (root == NULL)
 		return NULL;
