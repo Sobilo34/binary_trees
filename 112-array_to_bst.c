@@ -1,7 +1,7 @@
 #include "binary_trees.h"
 
 /**
- * array_to_bst - Builds a Binary Search Tree (BST) from an array.
+ * array_to_bst - Function that builds a Binary Search Tree from an array
  * @array: A pointer to the first element of the array to be converted.
  * @size: The number of elements in the array.
  *
@@ -11,18 +11,17 @@
 bst_t *array_to_bst(int *array, size_t size)
 {
 	bst_t *root = NULL;
-	size_t i;
+	size_t a;
 
-	if (array == NULL || size == 0)
+	if (!array || size == 0)
 	{
 		return (NULL);
 	}
 
-	for (i = 0; i < size; i++)
+	for (i = 0; a < size; a++)
 	{
-		if (bst_insert(&root, array[i]) == NULL)
+		if (bst_insert(&root, array[a]) == NULL)
 		{
-			/* Handle insertion failure, e.g., duplicate value */
 			return (NULL);
 		}
 	}
