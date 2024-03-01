@@ -20,6 +20,12 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 	return (binary_tree_is_bst(tree) && binary_tree_help_avl(tree, &height));
 }
 
+/**
+ * binary_tree_is_bst - A function that checks is a binary tree is a BST
+ * @tree: The pointer to the root node of the tree to check
+ * Return: The BST
+ */
+
 int binary_tree_is_bst(const binary_tree_t *tree)
 {
 	if (tree == NULL)
