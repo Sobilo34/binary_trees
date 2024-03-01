@@ -11,6 +11,7 @@
 avl_t *avl_insert(avl_t **tree, int value)
 {
 	avl_t *present, *parent, *node;
+
 	if (!tree)
 		return (NULL);
 
