@@ -38,6 +38,7 @@ int binary_tree_is_bst(const binary_tree_t *tree)
  *
  * Return: 1 if the tree is a valid AVL Tree, 0 otherwise.
  */
+
 int binary_tree_help_avl(const binary_tree_t *tree, int *height)
 {
 	int left_height = 0, right_height = 0;
@@ -52,10 +53,11 @@ int binary_tree_help_avl(const binary_tree_t *tree, int *height)
 	left_avl = binary_tree_help_avl(tree->left, &left_height);
 	right_avl = binary_tree_help_avl(tree->right, &right_height);
 
-	*height = 1 + (left_height > right_height ? left_height : right_height);
+	*height = 1 + ((left_height > right_height) ? left_height : right_height);
 
 	if (left_avl && right_avl &&
-	abs(left_height - right_height) <= 1)
+			abs(left_height - right_height) <= 1 &&
+			binary_tree_is_bst(tree))
 	{
 		return (1);
 	}
