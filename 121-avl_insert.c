@@ -40,6 +40,35 @@ avl_t *avl_insert(avl_t **tree, int value)
 	else
 		parent->right = node;
 
+	while (parent)
+	{
+		int balance = binary_tree_balance(parent);
+
+		if (balance > 1 && value < parent->left->n)
+			parent = binary_tree_rotate_right(parent);
+		else if (balance < -1 && value > parent->right->n)
+			parent = binary_tree_rotate_left(parent);
+		else if (balance > 1 && value > parent->left->n)
+		{
+			parent->left = binary_tree_rotate_left(parent->left);
+			parent = binary_tree_rotate_right(parent);
+		}
+		else if (balance < -1 && value < parent->right->n)
+		{
+			parent->right = binary_tree_rotate_right(parent->right);
+			parent = binary_tree_rotate_left(parent);
+		}
+
+		if (parent->parent == NULL)
+			*tree = parent;
+		else if (parent->parent->left == parent)
+			parent->parent->left = parent;
+		else
+			parent->parent->right = parent;
+
+		parent = parent->parent;
+	}
+
 	return (node);
 }
 
