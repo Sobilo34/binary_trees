@@ -12,16 +12,16 @@
 avl_t *sorted_array_to_avl_recursive(int *array, int start, int end)
 {
 	avl_t *root;
-	int mid ;
+	int mid;
 
 	if (start > end)
-		return NULL;
+		return (NULL);
 
 	mid = (start + end) / 2;
 	root = binary_tree_node(NULL, array[mid]);
 
 	if (root == NULL)
-		return NULL;
+		return (NULL);
 
 	root->left = sorted_array_to_avl_recursive(array, start, mid - 1);
 	root->right = sorted_array_to_avl_recursive(array, mid + 1, end);
@@ -31,7 +31,7 @@ avl_t *sorted_array_to_avl_recursive(int *array, int start, int end)
 
 	if (root->right)
 		root->right->parent = root;
-	
+
 	return (root);
 }
 
@@ -46,7 +46,7 @@ avl_t *sorted_array_to_avl_recursive(int *array, int start, int end)
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
 	if (array == NULL || size == 0)
-		return NULL;
+		return (NULL);
 
 	return (sorted_array_to_avl_recursive(array, 0, size - 1));
 }
