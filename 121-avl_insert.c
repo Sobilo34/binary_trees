@@ -1,5 +1,7 @@
 #include "binary_trees.h"
 
+avl_t *avl_insert(avl_t **tree, int value);
+
 /**
  * avl_insert - Function that inserts a value in an AVL Tree.
  * @tree: Double pointer to root node of AVL tree for inserting the value.
