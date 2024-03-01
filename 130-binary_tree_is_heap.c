@@ -10,11 +10,11 @@
 int binary_tree_is_heap(const binary_tree_t *tree)
 {
 	if (tree == NULL)
-		return 1;
+		return (1);
 
 	if ((tree->left && tree->left->n > tree->n) ||
 			(tree->right && tree->right->n > tree->n))
-		return 0;
+		return (0);
 
 	return (binary_tree_is_heap(tree->left) && binary_tree_is_heap(tree->right));
 }
