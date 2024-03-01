@@ -10,6 +10,7 @@
 int binary_tree_is_complete(const binary_tree_t *tree)
 {
 	binary_tree_t *queue[1024];
+	binary_tree_t *present;
 	size_t front = 0, back = 0;
 	int flag = 0;
 
@@ -20,8 +21,7 @@ int binary_tree_is_complete(const binary_tree_t *tree)
 
 	while (front < back)
 	{
-		binary_tree_t *present = queue[front++];
-
+		present = queue[front++];
 		if ((present->left == NULL && present->right != NULL) ||
 			(flag && (present->left != NULL || present->right != NULL)))
 			return (0);
